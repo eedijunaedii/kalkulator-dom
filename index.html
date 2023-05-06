@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kalkulator Dom</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="calculator">
+    <input type="text" id="result" readonly placeholder="PESILAT 2023">
+    <table>
+      <tr>
+        <td><input type="button" value="7" onclick="appendNumber(7)"></td>
+        <td><input type="button" value="8" onclick="appendNumber(8)"></td>
+        <td><input type="button" value="9" onclick="appendNumber(9)"></td>
+        <td><input type="button" class="operator" value="/" onclick="appendOperator('/')"></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="4" onclick="appendNumber(4)"></td>
+        <td><input type="button" value="5" onclick="appendNumber(5)"></td>
+        <td><input type="button" value="6" onclick="appendNumber(6)"></td>
+        <td><input type="button" class="operator" value="*" onclick="appendOperator('*')"></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="1" onclick="appendNumber(1)"></td>
+        <td><input type="button" value="2" onclick="appendNumber(2)"></td>
+        <td><input type="button" value="3" onclick="appendNumber(3)"></td>
+        <td><input type="button" class="operator" value="-" onclick="appendOperator('-')"></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="0" onclick="appendNumber(0)"></td>
+        <td><input type="button" class="reset" value="C" onclick="clearResult()"></td>
+        <td><input type="button" class="equal" value="=" onclick="calculate()"></td>
+        <td><input type="button" class="operator" value="+" onclick="appendOperator('+')"></td>
+      </tr>
+      <tr>
+        <td colspan="4"><input type="button" class="reset" value="Reset" onclick="resetCalculator()"></td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    function appendNumber(number) {
+      var result = document.getElementById("result");
+      result.value += number;
+    }
+
+    function appendOperator(operator) {
+      var result = document.getElementById("result");
+      result.value += operator;
+    }
+
+    function clearResult() {
+      var result = document.getElementById("result");
+      result.value = "";
+    }
+
+    function calculate() {
+      var result = document.getElementById("result");
+      var expression = result.value;
+      result.value = eval(expression);
+    }
+
+    function resetCalculator() {
+      var result = document.getElementById("result");
+      result.value = "";
+    }
+  </script>
+
+</body>
+</html>
